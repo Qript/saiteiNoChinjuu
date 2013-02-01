@@ -6,7 +6,7 @@
 	</p>
 </footer>
 <?php wp_footer() ?>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/wp-content/themes/saiteiNoChinju/js/jquery.js"><\/script>')</script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/chinju.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/sh/scripts/shCore.js"></script>

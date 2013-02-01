@@ -11,9 +11,11 @@
 					<ul class="category">
 						<li><?php the_category(', '); ?></li>
 					</ul>
+					<?php if (get_the_tags()): ?>
 					<ul class="tag">
 						<?php the_tags('<li>', '</li><li>', '</li>'); ?>
 					</ul>
+					<?php endif; ?>
 				</div>
 			</header>
 			<div class="article-body">
