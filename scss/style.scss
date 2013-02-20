@@ -857,18 +857,21 @@ aside h1 {
 	padding: 20px 0 19px;
 	background: url("img/bg_main-article.png") 0 100% repeat-x;
 	@extend %clearfix;
-	#cancel-comment-reply a {
+	.comment-close {
 		font-size: 1.4em;
-		padding: 8px 28px;
-		border-radius: 5px;
-		color: #fff;
-		font-weight: bold;
-		background: -moz-linear-gradient(top, #333, #000);
-		background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#000));
-		&:hover {
-			background: -moz-linear-gradient(top, #FDC900, #F8AD01);
-			background: -webkit-gradient(linear, left top, left bottom, from(#FDC900), to(#F8AD01));
-		}
+	}
+}
+#cancel-comment-reply a {
+	font-size: 1.4em;
+	padding: 8px 28px;
+	border-radius: 5px;
+	color: #fff;
+	font-weight: bold;
+	background: -moz-linear-gradient(top, #333, #000);
+	background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#000));
+	&:hover {
+		background: -moz-linear-gradient(top, #FDC900, #F8AD01);
+		background: -webkit-gradient(linear, left top, left bottom, from(#FDC900), to(#F8AD01));
 	}
 }
 #respond {

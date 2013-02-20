@@ -18,6 +18,9 @@
 					<p class="login"><a href="/wp-login.php">ログイン</a></p>
 					<?php endif; ?>
 					<div id="comment-form">
+						<?php if ( ! comments_open() ) : ?>
+							<p class="comment-close">現在、この投稿の新規コメントは受け付けておりません。</p>
+						<?php else : ?>
 						<div class="gravator">
 							<?php if (function_exists('get_avatar')) {
 								if (!is_user_logged_in()) {
@@ -38,9 +41,9 @@
 							<?php comment_form($defaults); ?>
 							<div id="cancel-comment-reply"><p><?php cancel_comment_reply_link() ?></p></div>
 						</div>
+						<?php endif; ?>
 					</div>
 					<ol>
 						<?php wp_list_comments('comment_field=type=comment&callback=mytheme_comment&title_reply='); ?>
 					</ol>
 				</section>
-				
