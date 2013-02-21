@@ -1,5 +1,6 @@
 <?php ?><!DOCTYPE html>
-<html lang="ja" id="page">
+
+<html lang="ja" id="page"<?php if ( is_Single() ) echo ' xmlns:fb="http://ogp.me/ns/fb#"' ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <?php if ( is_404() ) : ?>
@@ -35,17 +36,53 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 	<link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico" />
 	<?php wp_head() ?>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-38645220-1']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<?php if ( is_single() ) : ?>
+<script src="<?php bloginfo('template_directory'); ?>/js/social_tracking.js"></script>
+<script>
+	(function(){
+	var twitterWidgets = document.createElement('script');
+	twitterWidgets.type = 'text/javascript';
+	twitterWidgets.async = true;
+	twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+	// Setup a callback to track once the script loads.
+	twitterWidgets.onload = _ga.trackTwitter;
+	document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+	})();
+</script>
+<?php endif ?>
 </head>
 <body>
 <?php if ( is_single() ) : ?>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+		appId      : null, // ENTER your FB App ID
+		//channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+		status     : true, // check login status
+		cookie     : true, // enable cookies to allow the server to access the session
+		xfbml      : false  // parse XFBML
+	});
+	_ga.trackFacebook(); //Google Analytics tracking
+	};
+(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
 <?php endif ?>
 <header id="header">
 	<a id="logo" href="<?php bloginfo('url'); ?>">
